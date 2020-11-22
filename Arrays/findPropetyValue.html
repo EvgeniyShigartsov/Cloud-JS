@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let litmir = [
+                { author: 'Хэленка', title: 'Улетела сказка' },
+                { author: 'Коул Кресли', title: 'Восстание Аркан' },
+                { author: 'Райчел Мид', title: 'Золотая лилия' },
+            ]
+
+            function propetyValue(array, key) {
+                for (let item of array) {
+                    console.log(item[key])
+                }
+                return
+            }
+            propetyValue(litmir, 'author')
+        </script>
+    </body>
+</html>

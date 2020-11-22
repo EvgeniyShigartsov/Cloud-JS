@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const str = 'Каждый охотник желает знать, где сидит фазан.'
+
+            function firstLetters(string) {
+                const arr = string.split(' ')
+                const result = []
+                for (let item of arr) {
+                    result.push(item[0])
+                }
+                return result
+            }
+            console.log(firstLetters(str))
+        </script>
+    </body>
+</html>

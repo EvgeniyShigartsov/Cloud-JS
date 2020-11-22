@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let array = ['php', 'php', 'css', 'css','script', 'script', 'html', 'html', 'java'];
+        let array2 = [1,1,2,2,5,'h','g','h','g', true, true];
+        
+        function removeDuplicates(arr) {
+            let obj = {};
+            let result = [];
+            
+            for(let i = 0; i < arr.length; i++){
+                let key = arr[i]
+                obj[key] = true;
+            }
+            for(let item in obj){
+                result.push(item)
+            }
+            return result;
+        }
+        console.log(removeDuplicates(array2))
+    </script>
+    
+</body>
+</html>

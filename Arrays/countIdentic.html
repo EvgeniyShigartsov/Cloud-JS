@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            'use strict'
+            const array = [3, 3, 7, 7, 3, 3, 4, 5, 5, 8, 8, 8]
+            function countIdentic(arr) {
+                let clone = arr.slice(0)
+                let test = []
+                let current
+                let count = 0
+
+                while (clone.length) {
+                    current = clone.shift()
+                    if (test.indexOf(current) === -1) {
+                        test.push(current)
+                        if (clone.indexOf(current) >= 0) {
+                            count++
+                        }
+                    }
+                }
+                return count
+            }
+            console.log(countIdentic(array))
+        </script>
+    </body>
+</html>

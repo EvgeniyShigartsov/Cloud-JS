@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // function expand(array) {
+            // return array.flat(Infinity)
+            // }
+            // console.log(expand([1, [2], [3, [[4, [1], 2, [3, [5, [100, [1, ['str']]]]]]]], [5, 6]]))
+
+            // function expand(array) {
+            //     let result = array.toString()
+            //     let toArr = result.split(',')
+            //     return toArr
+            // }
+            // console.log(expand([0, [2], [3, [[4, [1], 2, [3, [5, [100, [1, ['str']]]]]]]], [5, 6]]))
+
+            function expand(array) {
+                let i = 0
+                while (i < array.length) {
+                    array = array.reduce(function (accumValue, currentValue, index, array) {
+                        return accumValue.concat(currentValue)
+                    }, [])
+                    i++
+                }
+                return array
+            }
+            console.log(expand([1, [2], [3, [[4, [1], 2, [3, [5, [100, [1, ['str']]]]]]]], [5, 6]]))
+        </script>
+    </body>
+</html>

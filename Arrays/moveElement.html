@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let arr = ['a', 'b', 'c', 'd', 'e']
+            function moveElement(array, from, to) {
+                // let one = array[from]
+                // let two = array[to]
+                // array.splice(from, 1, two)
+                // array.splice(to, 1, one)
+                array.splice(to, 0, arr.splice(from, 1)[0])
+                return array
+            }
+            console.log(moveElement(arr, 0, 4))
+        </script>
+    </body>
+</html>

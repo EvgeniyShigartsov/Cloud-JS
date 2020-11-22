@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const arr = [NaN, 0, 77, false, -17, '', undefined, 99, null]
+            function filterFalse(array) {
+                // let result = []
+                // array.forEach((element) => {
+                //     if (Boolean(element) !== false) {
+                //         result.push(element)
+                //     }
+                // })
+                // return result
+
+                return array.filter((value) => {
+                    return Boolean(value)
+                })
+            }
+            console.log(filterFalse(arr))
+        </script>
+    </body>
+</html>

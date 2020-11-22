@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <script>
+        setInterval(() => {
+            const date = new Date();
+            const h = date.getHours();
+            const m = date.getMinutes();
+            const s = date.getSeconds();
+
+            const container = document.querySelector('div');
+            // container.innerHTML =
+            // '<span style="color:red">11</span>:<span style="color:green">43</span>:<span style="czolor:blue">01</span>';
+            container.innerHTML =
+                `<span>${formatTime(h)}</span>
+            :<span>${formatTime(m)}</span>
+            :<span>${formatTime(s)}</span>`;
+            container.children[0].style.color = 'red'
+            container.children[1].style.color = 'green'
+            container.children[2].style.color = 'blue'
+        }, 1000)
+
+        function formatTime(v) {
+            return v < 10 ? `0${v}` : v
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        const massive = vegetables = ['Капуста', 'Репа', 'Редиска', 'Морковка','Капуста', 'Репа', 'Редиска', 'Морковка'];
+        const v2 = vegetables = [1,2,34,4,5,6,'j',null, true, Boolean];
+
+        // function cloneArray (array) {
+        //     const newArray = v2.slice(0, array.length)
+        //     return newArray
+        // }
+
+        // function cloneArray(array) {
+        //     const newArray = [];
+        //     for (let item of v2) {
+        //         newArray.push(item);
+        //     }
+        //     return newArray
+        // }
+        
+        function cloneArray (array) {
+            return array.slice(0)
+        }
+
+        const newArray = (cloneArray(v2));
+        const newMassive = (cloneArray(massive));
+        console.log(newArray)
+        console.log(' ')
+        console.log(v2)
+        console.log(newMassive)
+    </script>
+
+</body>
+</html>

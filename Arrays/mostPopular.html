@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            'use strict'
+            const array = [7, 'z', 'z', 'z', 3, 7, 'z', 7, 'z', 3, 5, 9, 7]
+
+            // function findMostPopular(array) {
+            //     const unique = []
+            //     const arrays = []
+            //     const arrLengths = []
+            //     let result = {}
+            //     for (let item of array) {
+            //         if (!unique.includes(item)) {
+            //             unique.push(item)
+            //         }
+            //     }
+            //     for (let it of unique) {
+            //         if (!arrays.includes(it)) {
+            //             arrays.push([it])
+            //         }
+            //     }
+            //     for (let i of arrays) {
+            //         for (let k of array) {
+            //             if (i.includes(k)) {
+            //                 i.push(k)
+            //             }
+            //         }
+            //     }
+            //     for (let j of arrays) {
+            //         result[j[0]] = j.length
+            //     }
+
+            //     for (let [key, value] of Object.entries(result)) {
+            //         console.log(`${key}: ${value}`)
+            //     }
+            //     return result
+            // }
+            // console.log(findMostPopular(array))
+
+            let arr1 = [7, 'z', 'z', 'z', 3, 7, 'z', 7, 'z', 3, 5, 9, 7]
+            let controlObj = {}
+            let count = 0
+            let max = 0
+            let output = ''
+
+            for (let i = 0; i < arr1.length; i++) {
+                if (controlObj[arr1[i]] !== true) {
+                    for (let j = i; j < arr1.length; j++) {
+                        if (arr1[i] == arr1[j]) {
+                            count++
+                        }
+                    }
+
+                    if (count > max) {
+                        max = count
+                        output = arr1[i] + ' повторяется ' + count + ' раз'
+                    }
+                    count = 0
+                }
+                controlObj[arr1[i]] = true
+            }
+
+            console.log(output)
+        </script>
+    </body>
+</html>

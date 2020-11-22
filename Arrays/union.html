@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let array1 = [5, 2, 1, -10, 8, 'str', 100, 100]
+            let array2 = [5, 2, 1, -9, 3, 7]
+
+            function union(arr1 = array1, arr2 = array2) {
+                const unite = arr1.concat(arr2)
+                const unique = []
+
+                for (let item of unite) {
+                    if (!unique.includes(item)) {
+                        unique.push(item)
+                    }
+                }
+                return unique
+            }
+            console.log(union(array1, array2))
+        </script>
+    </body>
+</html>

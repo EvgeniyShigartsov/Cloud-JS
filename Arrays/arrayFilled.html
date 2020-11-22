@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            function arrayFilled(len, value) {
+                let result = []
+                // result.length = len
+                // result.fill(value)
+
+                for (let i = 0; i < len; i++) {
+                    result.push(value)
+                }
+                return result
+            }
+            console.log(arrayFilled(5, true))
+            console.log(arrayFilled(10, 'apple'))
+        </script>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+
+        }
+        .box {
+            height: 400px;
+            width: 400px;
+            background-color: wheat;
+            position: relative;
+            border: 15px solid darkgray;
+        }
+        .ball {
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color:tomato;
+            transition: .5s ease-in;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="ball"></div>
+    </div>
+
+    <script>
+        const box = document.querySelector('.box');
+        const ball = document.querySelector('.ball');
+
+        box.addEventListener('click', function(event){
+            const halfOfBallSize = ball.offsetWidth / 2;
+            const boxBorderWidth = +getComputedStyle(box).borderLeftWidth.slice(0, -2)
+            const boxSize = box.offsetWidth - boxBorderWidth * 2;
+
+            const rect = box.getBoundingClientRect();
+            const x = event.clientX - rect.left - boxBorderWidth;
+            const y = event.clientY - rect.top - boxBorderWidth;
+            console.log(rect.left)
+            console.log(rect.top)
+            let ballXCoordinate = x - halfOfBallSize;
+            let ballYCoordinate = y - halfOfBallSize;
+
+            ballXCoordinate = Math.max(0, ballXCoordinate);
+            ballYCoordinate = Math.max(0, ballYCoordinate);
+            ballXCoordinate = Math.min(boxSize - halfOfBallSize * 2, ballXCoordinate)
+            ballYCoordinate = Math.min(boxSize - halfOfBallSize * 2, ballYCoordinate)
+
+            ball.style.left = `${ballXCoordinate}px`
+            ball.style.top = `${ballYCoordinate}px`
+        })
+        
+
+    </script>
+
+</body>
+</html>
