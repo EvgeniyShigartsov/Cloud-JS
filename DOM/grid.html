@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .row {
+                display: flex;
+            }
+            .cell {
+                width: 100px;
+                height: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid blue;
+            }
+            .indicator {
+                width: 80%;
+                height: 80%;
+                background-color: tomato;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            class Grid {
+                constructor(size) {
+                    this.grid = Grid.createGrid(size)
+                    this.size = size
+                    this.y = 0
+                    this.x = 0
+
+                    this.indicator = document.createElement('div')
+                    this.indicator.classList.add('indicator')
+                    this.grid[this.y][this.x].appendChild(this.indicator)
+                }
+                move(position) {
+                    const positions = {
+                        up: [-1, 0],
+                        down: [1, 0],
+                        right: [0, 1],
+                        left: [0, -1],
+                    }
+                    const [shiftY, shiftX] = positions[position]
+
+                    if (this.isValidPos(this.y + shiftY, this.x + shiftX)) {
+                        this.y += shiftY
+                        this.x += shiftX
+
+                        this.grid[this.y][this.x].appendChild(this.indicator)
+                    }
+                }
+                isValidPos(y, x) {
+                    // return y >= 0 && y < this.size && x >= 0 && x < this.size
+                    return Boolean(this.grid[y] && this.grid[y][x])
+                }
+                static createGrid(size) {
+                    const container = document.createElement('div')
+                    container.classList.add('container')
+
+                    const matrix = []
+                    const flex = document.createElement('div')
+                    container.appendChild(flex)
+
+                    for (let y = 0; y < size; y++) {
+                        const row = document.createElement('div')
+                        row.classList.add('row')
+                        matrix.push([])
+                        for (let x = 0; x < size; x++) {
+                            const cell = document.createElement('div')
+                            cell.classList.add('cell')
+                            row.appendChild(cell)
+                            matrix[y][x] = cell
+                        }
+                        flex.appendChild(row)
+                    }
+                    document.body.appendChild(container)
+                    return matrix
+                }
+            }
+            const grid1 = new Grid(5)
+        </script>
+    </body>
+</html>
